@@ -1,0 +1,469 @@
+/* ============================================================
+   Mobile calibration — shared across every Corbit page.
+   Loaded last so it wins over the per-page stylesheets.
+   ============================================================ */
+
+.nav-toggle {
+  display: none;
+}
+.sub-toggle {
+  display: none;
+}
+
+/* Layering: the fixed top bar must always sit above page content and footer. */
+.topbar {
+  z-index: 1200 !important;
+}
+.sitefooter {
+  z-index: 1 !important;
+}
+
+/* ---------- Compact footer (all pages, all sizes) ---------- */
+.sitefooter {
+  padding-top: 44px !important;
+  padding-bottom: 26px !important;
+}
+.footer-inner {
+  padding: 18px 26px !important;
+  gap: 18px !important;
+}
+.footer-col .brand {
+  padding-bottom: 6px !important;
+}
+.foot-label {
+  margin-bottom: 6px !important;
+}
+.footer-col a {
+  padding: 3px 0 !important;
+}
+.foot-note {
+  font-size: 11.5px !important;
+  line-height: 1.45 !important;
+}
+.social-row a {
+  width: 30px !important;
+  height: 30px !important;
+}
+.footer-bottom {
+  margin-top: 8px !important;
+}
+
+@media (max-width: 860px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+  }
+
+  /* ---------- Top bar → hamburger ---------- */
+  .topbar {
+    top: 8px !important;
+    left: 8px !important;
+    right: 8px !important;
+  }
+  .topbar-inner {
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    position: relative;
+  }
+
+  .brand {
+    border-right: none !important;
+    padding: 13px 16px !important;
+    font-size: 13px !important;
+  }
+  .brand::after {
+    display: none !important;
+  }
+
+  .nav-toggle {
+    display: flex;
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    width: 40px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid var(--panel-edge);
+    border-radius: 8px;
+    background: linear-gradient(to bottom, var(--panel-hi), var(--panel-lo));
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.55) inset;
+    cursor: pointer;
+    z-index: 3;
+  }
+  .nav-toggle-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 17px;
+  }
+  .nav-toggle-bars span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    border-radius: 2px;
+    background: var(--ink);
+    transition:
+      transform 0.22s ease,
+      opacity 0.18s ease;
+  }
+  .topbar--open .nav-toggle-bars span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .topbar--open .nav-toggle-bars span:nth-child(2) {
+    opacity: 0;
+  }
+  .topbar--open .nav-toggle-bars span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .nav,
+  .topbar .search {
+    display: none !important;
+  }
+
+  .topbar--open .nav {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.16);
+    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.55) inset;
+    max-height: 62vh;
+    overflow-y: auto;
+  }
+  .topbar--open .nav-item {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .topbar--open .nav-item::after {
+    display: none !important;
+  }
+  .topbar--open .nav a {
+    padding: 13px 16px !important;
+    font-size: 12.5px !important;
+  }
+  /* Submenu toggle button (mobile only) */
+  .topbar--open .nav-item--has-sub {
+    position: relative;
+  }
+  .topbar--open .sub-toggle {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 48px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    border-left: 1px solid rgba(0, 0, 0, 0.12);
+    color: var(--ink);
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .topbar--open .nav-item--has-sub.open .sub-toggle span {
+    transform: rotate(180deg);
+    display: block;
+  }
+  .topbar--open .nav-item--has-sub .caret {
+    display: none;
+  }
+
+  /* Dropdown is closed until its toggle is tapped */
+  .topbar--open .dropdown {
+    display: none !important;
+  }
+  .topbar--open .nav-item.open .dropdown {
+    position: static !important;
+    display: flex !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: rgba(255, 255, 255, 0.22);
+  }
+  .topbar--open .nav-item.open .dropdown a {
+    padding-left: 32px !important;
+  }
+  .topbar--open .search {
+    display: flex !important;
+    order: 99;
+    width: 100%;
+    margin: 0 !important;
+    padding: 10px 12px !important;
+    border-left: none !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.16);
+  }
+  .topbar--open .search input {
+    flex: 1;
+    width: auto !important;
+  }
+
+  /* ---------- Page shell ---------- */
+  .page {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-top: 74px !important;
+    max-width: 100% !important;
+    overflow-x: hidden;
+  }
+  .page h1 {
+    font-size: 24px !important;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+  .page h2 {
+    font-size: 18px !important;
+  }
+  .lede {
+    font-size: 13.5px !important;
+    line-height: 1.6;
+    max-width: 100% !important;
+  }
+
+  /* ---------- Cards & grids ---------- */
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+  .card {
+    min-width: 0 !important;
+  }
+  .card-title {
+    font-size: 13px !important;
+  }
+  .card-meta,
+  .card-price {
+    font-size: 12px !important;
+  }
+
+  /* ---------- Services carousels ---------- */
+  .carousel {
+    overflow: hidden !important;
+    max-width: 100% !important;
+  }
+  .carousel-track {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px !important;
+    padding-bottom: 6px;
+    max-width: 100% !important;
+  }
+  .carousel-track > * {
+    flex: 0 0 78% !important;
+    width: 78% !important;
+    max-width: 78% !important;
+    scroll-snap-align: start;
+  }
+  .carousel-btn {
+    display: none !important;
+  }
+
+  /* ---------- Home mosaic ---------- */
+  .corbit-index .stage {
+    height: 100svh;
+  }
+  .corbit-index .mosaic {
+    width: 720px !important;
+    height: 880px !important;
+  }
+  .corbit-index .tile:hover {
+    transform: translate3d(-50%, -50%, var(--d)) rotateZ(var(--r));
+    filter: none;
+  }
+
+  /* ---------- Footer ---------- */
+  .sitefooter {
+    padding: 28px 12px calc(18px + env(safe-area-inset-bottom)) !important;
+    margin-top: 18px;
+    clear: both;
+  }
+  .footer-inner {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    flex-direction: column !important;
+    gap: 12px 14px !important;
+    padding: 14px 16px !important;
+  }
+  .footer-col {
+    min-width: 0 !important;
+    flex: none !important;
+  }
+  .footer-col:first-child {
+    grid-column: 1 / -1;
+  }
+  .foot-note {
+    max-width: 100% !important;
+  }
+  .footer-col a {
+    padding: 5px 0 !important;
+  }
+  .footer-bottom {
+    padding: 0 6px;
+    line-height: 1.5;
+  }
+  .social-row a {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-panel {
+    padding: 18px 16px !important;
+    max-width: 100% !important;
+  }
+  .contact-input,
+  .contact-textarea {
+    width: 100% !important;
+    font-size: 16px !important;
+  }
+  .contact-send {
+    width: 100%;
+  }
+
+  /* ---------- Shop ---------- */
+  .filter-row {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  .shop-banner {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+  .card-title {
+    font-size: 12px !important;
+  }
+  .page {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  .carousel-track > * {
+    flex-basis: 84% !important;
+    width: 84% !important;
+    max-width: 84% !important;
+  }
+}
+
+/* Journal: keep the book inside the viewport and stack the tools. */
+@media (max-width: 860px) {
+  .corbit-journal .journal-main {
+    padding: 74px 12px 40px !important;
+  }
+  .corbit-journal .journal-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    gap: 14px;
+  }
+  .corbit-journal .stage-wrap {
+    position: static !important;
+  }
+  .corbit-journal .toolbar {
+    position: static !important;
+    width: 100% !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 6px 4px !important;
+    justify-content: center !important;
+    padding: 8px 6px !important;
+    border-radius: 12px !important;
+  }
+  .corbit-journal .tool-btn {
+    width: auto !important;
+    padding: 8px 7px !important;
+    font-size: 9px !important;
+    gap: 4px !important;
+    letter-spacing: 0.03em !important;
+  }
+  .corbit-journal .nav-btn {
+    padding: 8px 12px !important;
+  }
+  .corbit-journal .ad-rail {
+    display: none !important;
+  }
+  .corbit-journal .book {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 3 / 5 !important;
+    margin-inline: auto;
+  }
+  .corbit-journal .journal-main {
+    padding: 68px 8px 24px !important;
+  }
+  .corbit-journal .journal-title {
+    margin-bottom: 8px !important;
+  }
+  .corbit-journal .journal-title h1 {
+    font-size: 21px !important;
+  }
+  .corbit-journal .journal-autosave {
+    display: none !important;
+  }
+  .corbit-journal .lede-bottom {
+    font-size: 12.5px !important;
+    margin-top: 14px !important;
+  }
+  .corbit-journal .journal-layout {
+    gap: 9px !important;
+  }
+  .corbit-journal .stage {
+    width: 100%;
+  }
+  .corbit-journal .book::after {
+    display: none;
+  }
+  .corbit-journal .ribbon {
+    right: 18px;
+    top: -3px;
+    height: 42px;
+    width: 14px;
+  }
+  .corbit-journal .leaf-inner {
+    padding: 44px 16px 16px 18px !important;
+  }
+  .corbit-journal .leaf-text {
+    font-size: 18px !important;
+    line-height: 26px !important;
+  }
+  .corbit-journal .leaf-date {
+    top: 18px !important;
+    left: 18px !important;
+    font-size: 10px !important;
+  }
+  .corbit-journal .leaf-num {
+    top: 18px !important;
+    right: 44px !important;
+    font-size: 10px !important;
+  }
+  .corbit-journal .photo-note img {
+    width: 96px !important;
+  }
+  .corbit-journal .page-nav-row {
+    margin-top: 12px !important;
+    gap: 10px !important;
+    justify-content: space-between !important;
+    width: 100%;
+  }
+  .corbit-journal .indicator {
+    font-size: 13px !important;
+    font-family: Georgia, serif !important;
+  }
+}
