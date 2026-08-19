@@ -112,8 +112,8 @@ export function initJournal(options?: {
         link.download = `corbit-journal-page-${current + 1}.png`;
         link.href = canvas ? canvas.toDataURL("image/png") : "";
         link.click();
-      } catch (err) {
-        console.error("Export error:", err);
+      } catch {
+        // Export failed - user cancelled or canvas not ready
       }
     });
   }

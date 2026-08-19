@@ -94,8 +94,8 @@ export function AmbientSound() {
           }
         }
         setIsPlaying(true);
-      } catch (err) {
-        console.warn("Web Audio autoplay interaction required:", err);
+      } catch {
+        // Web Audio autoplay interaction required - user must enable manually
       }
     }
   };

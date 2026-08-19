@@ -22,9 +22,7 @@ function Discover() {
   return (
     <div className="corbit-discover">
       <TopBar />
-      <main className="page" style={{ minHeight: "60vh" }}>
-        {/* Content & tiles disabled as requested */}
-      </main>
+      <main className="page" style={{ minHeight: "60vh" }} />
       <SiteFooter />
     </div>
   );

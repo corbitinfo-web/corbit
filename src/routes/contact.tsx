@@ -37,7 +37,7 @@ function Contact() {
         sessionStorage.removeItem("corbit_pending_inquiry");
       }
     } catch {
-      // Ignore storage errors if disabled
+      // Storage unavailable or disabled
     }
   }, []);
 

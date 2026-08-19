@@ -234,7 +234,6 @@ function Home() {
     <div className="corbit-index">
       <TopBar />
 
-      {/* 3D Spatial Mosaic Archive Stage */}
       <div className="stage">
         <div className="mosaic" ref={mosaicRef}>
           {tiles.map((t, i) => {
@@ -280,7 +279,6 @@ function Home() {
         <div className="vignette" />
       </div>
 
-      {/* Banners */}
       <div className="home-sections" style={{ flex: "1 0 auto" }}>
         <div className="banner banner--art">
           <img
@@ -304,7 +302,6 @@ function Home() {
         </div>
       </div>
 
-      {/* Interactive Project Inspector Lightbox */}
       <ProjectModal
         project={activeProject}
         onClose={() => setActiveProject(null)}
@@ -312,7 +309,6 @@ function Home() {
         onNext={handleNext}
       />
 
-      {/* Real-time Studio Telemetry & Navigation HUD */}
       <ScrollTelemetry />
 
       <SiteFooter />
