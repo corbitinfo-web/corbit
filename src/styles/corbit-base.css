@@ -1,6 +1,6 @@
 /* ==========================================================================
-   BLACK NEUMORPHISM THEME
-   Dark neumatic design with subtle shadows, highlights, and monochromatic tones
+   MINIMAL NEUMORPHISM THEME
+   Clean, flat dark design with minimal shadows and no gradients
    ========================================================================== */
 
 .corbit-index,
@@ -11,42 +11,42 @@
 .corbit-shop,
 .corbit-about,
 .corbit-privacy {
-  /* Black Neumorphism Color Palette */
-  --bg-dark: #0a0a0a;
-  --bg-surface: #141414;
-  --bg-surface-elevated: #1a1a1a;
+  /* Minimal Dark Color Palette */
+  --bg-base: #121212;
+  --bg-surface: #1a1a1a;
+  --bg-surface-hover: #222222;
   
-  /* Neumorphic shadows for dark theme */
-  --shadow-light: rgba(255, 255, 255, 0.08);
-  --shadow-dark: rgba(0, 0, 0, 0.6);
-  --shadow-strong: rgba(0, 0, 0, 0.8);
+  /* Minimal shadows - single color, subtle */
+  --shadow-light: rgba(0, 0, 0, 0.3);
+  --shadow-dark: rgba(0, 0, 0, 0.5);
+  --shadow-strong: rgba(0, 0, 0, 0.7);
   
-  /* Accent colors - keeping subtle gold for brand consistency */
-  --accent: #d4c4a0;
-  --accent-dim: #8a7d65;
-  --accent-glow: rgba(212, 196, 160, 0.15);
+  /* Accent colors - white for minimal aesthetic */
+  --accent: #ffffff;
+  --accent-dim: #888888;
+  --accent-glow: rgba(255, 255, 255, 0.1);
   
   /* Legacy variable mapping for backward compatibility */
-  --olive: #6b7a55;
-  --panel-hi: #1e1e1e;
+  --olive: #888888;
+  --panel-hi: #1a1a1a;
   --panel-mid: #161616;
-  --panel-lo: #111111;
-  --panel-edge: #2a2a2a;
-  --ink: #e8e8e8;
+  --panel-lo: #121212;
+  --panel-edge: rgba(255, 255, 255, 0.08);
+  --ink: #e0e0e0;
   --paper: #1a1a1a;
   --paper-2: #161616;
-  --paper-shadow: #0a0a0a;
-  --pen-ink: #f0f0f0;
+  --paper-shadow: #0f0f0f;
+  --pen-ink: #e0e0e0;
   --rule: rgba(255, 255, 255, 0.08);
   --beige: #1a1a1a;
   --beige-card: #1e1e1e;
-  --citrus: #d4a06b;
+  --citrus: #aaaaaa;
   
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Arial, Helvetica, sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--bg-dark);
+  background: var(--bg-base);
 }
 
 .corbit-index,
@@ -101,7 +101,7 @@
   padding: 0 10px;
   border-radius: 6px;
   border: 1px solid var(--panel-edge);
-  background: linear-gradient(145deg, var(--bg-surface-elevated), var(--bg-surface));
+  background: var(--bg-surface);
   color: var(--ink);
   cursor: pointer;
   box-shadow: 
@@ -112,7 +112,7 @@
 }
 
 .ambient-btn:hover {
-  background: linear-gradient(145deg, #222222, #181818);
+  background: #1a1a1a;
   box-shadow: 
     8px 8px 16px var(--shadow-dark),
     -8px -8px 16px var(--shadow-light),
@@ -129,7 +129,7 @@
   box-shadow: 
     inset 3px 3px 6px var(--shadow-dark),
     inset -3px -3px 6px var(--shadow-light);
-  background: linear-gradient(145deg, #1a1a1a, #121212);
+  background: #161616;
   border-color: var(--accent-dim);
 }
 
@@ -205,7 +205,7 @@
   width: 100%;
   max-width: 1020px;
   max-height: 90vh;
-  background: linear-gradient(145deg, var(--bg-surface-elevated), var(--bg-surface));
+  background: var(--bg-surface);
   border: 1px solid var(--panel-edge);
   border-radius: 20px;
   box-shadow: 
@@ -234,7 +234,7 @@
   height: 36px;
   border-radius: 50%;
   border: 1px solid var(--panel-edge);
-  background: linear-gradient(145deg, var(--bg-surface-elevated), var(--bg-surface));
+  background: var(--bg-surface);
   color: var(--ink);
   font-size: 20px;
   line-height: 1;
@@ -249,7 +249,7 @@
 }
 
 .modal-close-btn:hover {
-  background: linear-gradient(145deg, #222, #181818);
+  background: #1a1a1a;
   box-shadow: 
     6px 6px 12px var(--shadow-dark),
     -6px -6px 12px var(--shadow-light);
@@ -258,7 +258,7 @@
 
 .modal-preview-area {
   position: relative;
-  background: linear-gradient(145deg, #0d0d0d, #111111);
+  background: #0f0f0f;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -292,7 +292,7 @@
   height: 36px;
   border-radius: 50%;
   border: 1px solid var(--panel-edge);
-  background: linear-gradient(145deg, var(--bg-surface-elevated), var(--bg-surface));
+  background: var(--bg-surface);
   color: var(--ink);
   font-size: 22px;
   cursor: pointer;
@@ -306,7 +306,7 @@
 }
 
 .modal-nav-btn:hover {
-  background: linear-gradient(145deg, #222, #181818);
+  background: #1a1a1a;
   box-shadow: 
     6px 6px 12px var(--shadow-dark),
     -6px -6px 12px var(--shadow-light);
@@ -377,7 +377,7 @@
   font-size: 11px;
   padding: 4px 10px;
   border-radius: 6px;
-  background: linear-gradient(145deg, var(--bg-surface), var(--bg-dark));
+  background: var(--bg-base);
   border: 1px solid var(--panel-edge);
   color: #999;
   transition: all 0.2s ease;
@@ -407,7 +407,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  background: linear-gradient(145deg, rgba(30, 30, 30, 0.3), rgba(20, 20, 20, 0.5));
+  background: rgba(30, 30, 30, 0.3);
   border: 1px solid var(--panel-edge);
   border-radius: 10px;
   padding: 12px 14px;
@@ -440,7 +440,7 @@
 .modal-cta-btn {
   display: block;
   text-align: center;
-  background: linear-gradient(145deg, var(--bg-surface-elevated), var(--bg-surface));
+  background: var(--bg-surface);
   border: 1px solid var(--panel-edge);
   color: var(--ink);
   font-weight: 700;
@@ -457,7 +457,7 @@
 }
 
 .modal-cta-btn:hover {
-  background: linear-gradient(145deg, #222, #181818);
+  background: #1a1a1a;
   box-shadow: 
     8px 8px 16px var(--shadow-dark),
     -8px -8px 16px var(--shadow-light);
@@ -468,7 +468,7 @@
    Quote & Scope Estimator Component (Black Neumorphism)
    ========================================================================== */
 .quote-calculator-card {
-  background: linear-gradient(145deg, var(--bg-surface-elevated), var(--bg-surface));
+  background: var(--bg-surface);
   border: 1px solid var(--panel-edge);
   border-radius: 20px;
   padding: 36px 32px;
@@ -686,7 +686,7 @@
 }
 
 .summary-box {
-  background: linear-gradient(135deg, rgba(232, 216, 171, 0.08) 0%, rgba(20, 22, 28, 0.9) 100%);
+  background: #1a1a1a;
   border: 1px solid rgba(232, 216, 171, 0.3);
   border-radius: 16px;
   padding: 28px 24px;
@@ -747,7 +747,7 @@
 .calc-cta-btn {
   margin-top: 10px;
   width: 100%;
-  background: linear-gradient(to bottom, var(--panel-hi), var(--panel-lo));
+  background: var(--panel-hi);
   border: 1px solid var(--panel-edge);
   color: var(--ink);
   font-weight: 800;
